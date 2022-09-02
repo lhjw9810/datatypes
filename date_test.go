@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/jinzhu/now"
-	"gorm.io/datatypes"
+	"github.com/lhjw9810/datatypes"
 	. "gorm.io/gorm/utils/tests"
 )
 
@@ -56,7 +56,7 @@ func TestGobEncoding(t *testing.T) {
 }
 
 func TestJSONEncoding(t *testing.T) {
-	date := datatypes.Date(time.Now())
+	date := datatypes.Date(time.Date(time.Now().Year(), time.Now().Month(), time.Now().Day(), 0, 0, 0, 0, time.UTC))
 	b, err := json.Marshal(date)
 	if err != nil {
 		t.Fatalf("failed to encode datatypes.Date: %v", err)

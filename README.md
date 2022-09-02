@@ -5,7 +5,7 @@
 sqlite, mysql, postgres supported
 
 ```go
-import "gorm.io/datatypes"
+import "github.com/lhjw9810/datatypes"
 
 type UserWithJSON struct {
 	gorm.Model
@@ -46,17 +46,18 @@ DB.First(&user, datatypes.JSONQuery("attributes").Equals("orgb", "orgs", "orgb")
 // SELECT * FROM "user" WHERE json_extract_path_text("attributes"::json,'orgs','orgb') = 'orgb'
 ```
 
-NOTE: SQlite need to build with `json1` tag, e.g: `go build --tags json1`, refer https://github.com/mattn/go-sqlite3#usage
+NOTE: SQlite need to build with `json1` tag, e.g: `go build --tags json1`,
+refer https://github.com/mattn/go-sqlite3#usage
 
 ## Date
 
 ```go
-import "gorm.io/datatypes"
+import "github.com/lhjw9810/datatypes"
 
 type UserWithDate struct {
-	gorm.Model
-	Name string
-	Date datatypes.Date
+gorm.Model
+Name string
+Date datatypes.Date
 }
 
 user := UserWithDate{Name: "jinzhu", Date: datatypes.Date(time.Now())}
@@ -74,12 +75,12 @@ MySQL, PostgreSQL, SQLite, SQLServer are supported.
 Time with nanoseconds is supported for some databases which support for time with fractional second scale.
 
 ```go
-import "gorm.io/datatypes"
+import "github.com/lhjw9810/datatypes"
 
 type UserWithTime struct {
-    gorm.Model
-    Name string
-    Time datatypes.Time
+gorm.Model
+Name string
+Time datatypes.Time
 }
 
 user := UserWithTime{Name: "jinzhu", Time: datatypes.NewTime(1, 2, 3, 0)}

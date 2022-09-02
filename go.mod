@@ -1,4 +1,4 @@
-module github.com/lhjw9810/datatypes/v2
+module github.com/lhjw9810/datatypes
 
 go 1.14
 
